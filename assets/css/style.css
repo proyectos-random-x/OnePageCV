@@ -266,3 +266,70 @@ button[type=submit] {
 		}
 	}
 }
+@media (width <= 468px) {
+	body {
+		background: linear-gradient(
+			to left, 
+			rgba(var(--primary), .9),  
+			rgba(var(--primary), .9)
+		), url('../images/user_profile_one.png') fixed no-repeat 80% 50%  / cover;
+	}
+	.container {
+		width: 100%!important;
+	}
+	nav {
+		.menu {
+			height: auto;
+		}
+	}
+	.hero {
+		margin: 2rem auto 2rem auto;
+		.content {
+			--heading: 5rem;
+			.avatar {
+				width: 80%;
+				height: 80%;
+				img {
+					margin-bottom: -5%;
+					width: 100%;
+					height: 100%;
+				}
+			}
+			.info {
+				margin-bottom: 50px;
+			}
+			small {
+				top: 50%;
+				&.tag-1 {
+					left: 1rem;
+				}
+				&.tag-2 {
+					right: .5rem;
+				}
+				&.tag-3 {
+					top: 70%;
+					left: 2rem;
+				}
+				&.tag-4 {
+					right: 3rem;
+					bottom: 2rem;
+				}
+			}
+		}
+	}
+	section {
+		padding: 1mre 2rem;
+	}
+	form {
+		width: 100%;
+	}
+	.projects {
+		display: block!important;
+		.project {
+			display: block!important;
+			.cover {
+				display: none;
+			}
+		}
+	}
+}
