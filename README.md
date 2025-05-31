@@ -1,11 +1,12 @@
 # 🧑‍💻 One Page CV
 
-Un portfolio personal minimalista y profesional que funciona como CV online de una sola página. Creado con tecnologías web fundamentales: HTML, CSS y JavaScript vanilla.
+![screenshot](screenshot.png)
 
+Un portfolio personal minimalista y profesional que funciona como CV online de una sola página. Creado con tecnologías web fundamentales: HTML, CSS y JavaScript vanilla.
 
 ## ✨ Características principales
 
-🌐 **Multiidioma**: Cambia entre idiomas fácilmente - toda la información se gestiona a través de archivos .json independientes, sin necesidad de tocar el código HTML.
+🌐 **Multi-idioma**: Cambia entre idiomas fácilmente - toda la información se gestiona a través de archivos .json independientes, sin necesidad de tocar el código HTML.
 
 🎨 **Personalización visual**:
 - Modo **dark/light** para adaptarse a las preferencias del usuario
@@ -59,34 +60,43 @@ Cada archivo representa un idioma:
 ### 📌 Ejemplo de contenido en `es.json`:
 ```json
 { 
-  "title": "One Page CV — Jhon Doe",
-  "name": "Jhon Doe",
-  "menu": {
-    "item1": "Sobre mí",
-    "item2": "Tecnologías",
-    "item3": "Proyectos",
-    "item4": "Contacto"
+  "Title": "One Page CV — {TU_NOMBRE}",
+  "PersonName": "{TU_NOMBRE}",
+  "NavbarItems": {
+    "sobre_mi": "Sobre mí",
+    "tecnologias": "Tecnologías",
+    "proyectos": "Proyectos",
+    "contacto": "Contacto"
   },
-  "tags": [
-    "",
-    ""
+  "Traits": [
+    "Habilidad1",
+    "Habilidad2",
+    "Habilidad3",
+    "Habilidad4"
   ],
-  "aboutme": {
+  "AboutMe": {
     "title": "Sobre mi",
-    "content": ""
+    "content": "<p>Tu contenido</p>"
   },
-  "technologie": {
+  "Categories": {
+    "1": "Frontend",
+    "2": "Backend",
+    "3": "Database",
+    "4": "Other"
+  },
+  "Technologies": {
     "title": "Tecnologías",
     "list": [
       { 
-        "icon": "",
-        "text": ""
+        "category": "1",
+        "icon": "./assets/images/technologies/example.svg",
+        "text": "example"
       }
     ]
   },
-  "projects": {
+  "Projects": {
     "title": "Proyectos",
-    "items": [
+    "projects": [
       {
         "title": "",
         "description": "",
@@ -95,13 +105,13 @@ Cada archivo representa un idioma:
       }
     ]
   },
-  "contact": {
+  "Contact": {
     "title": "Contacto",
-    "description": "¿Querés hablar sobre un proyecto, mejorar tu web o simplemente decir hola?",
+    "content": "¿Querés hablar sobre un proyecto, mejorar tu web o simplemente decir hola?",
     "fields": {
-      "nombre": "Nombre",
-      "correo": "Correo",
-      "mensaje": "Mensaje",
+      "nombre": "Nombre:",
+      "correo": "Correo:",
+      "mensaje": "Mensaje:",
       "enviar": "Enviar"
     }
   }
