@@ -121,16 +121,17 @@ Cada archivo representa un idioma:
 ### 🚀 Cómo usar
 Cloná el repositorio:
 ```bash
-git clone https://github.com/tu-usuario/one-page-cv.git
-cd one-page-cv
+git clone https://github.com/proyectos-random-x/OnePageCV.git
+cd OnePageCV
 ```
 Abrí index.html en tu navegador.
 
 Para cambiar el contenido, editá los archivos en /assets/json/.
 
-Para cambiar de idioma, modificá la línea en app.js:
-```javascript
-const LanguageDefault = "es"; // Cambiar por "en", "pt", etc.
+Para cambiar de idioma de forma manual:
+```html
+<!-- Cambiar por lang="en", lang="pt", etc. -->
+<html lang="es" data-scheme="light" data-color="default">
 ```
 
 ### 🌍 Publicación
