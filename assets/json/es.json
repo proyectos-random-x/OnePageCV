@@ -1,0 +1,127 @@
+{	
+	"Title": "One Page CV — Jhon Doe",
+	"PersonName": "Jhon Doe",
+	"NavbarItems": {
+		"sobre_mi": "Sobre mí",
+		"tecnologias": "Tecnologías",
+		"proyectos": "Proyectos",
+		"contacto": "Contacto"
+	},
+	"Traits": [
+		"Diseñador",
+		"Desarrollador",
+		"Freelance",
+		"Autodidacta"
+	],
+	"AboutMe": {
+		"title": "Sobre mi",
+		"content": "<p>Hola, soy Jhon Doe —<em>desarrollador web a medio camino entre el minimalismo visual y el código bien condimentado</em>. Si algo se puede refactorizar, ahí estoy yo con mi linterna y una taza de café sin azúcar.</p><p>Me especializo en adoptar proyectos que ya existen y darles una segunda vida: ordenando estilos, reduciendo el peso de las páginas y asegurándome de que todo corra tan suave como una manteca tibia.</p><p>Fuera del editor de código, me gusta estudiar diseño de interfaces con Figma, entender cómo mejorar la experiencia del usuario y coleccionar atajos de teclado como si fueran monedas antiguas.</p>"
+	},
+	"Categories": {
+		"1": "Frontend",
+		"2": "Backend",
+		"3": "Database",
+		"4": "Other"
+	},
+	"Technologies": {
+		"title": "Tecnologías",
+		"list": [
+			{ 
+				"category": "1",
+				"icon": "./assets/images/technologies/html.svg",
+				"text": "HTML"
+			}, { 
+				"category": "1",
+				"icon": "./assets/images/technologies/css.svg",
+				"text": "CSS"
+			}, { 
+				"category": "1",
+				"icon": "./assets/images/technologies/javascript.svg",
+				"text": "JavaScript (ES6+)"
+			}, { 
+				"category": "1",
+				"icon": "./assets/images/technologies/astro.svg",
+				"text": "Astro"
+			}, { 
+				"category": "1",
+				"icon": "./assets/images/technologies/react.svg",
+				"text": "React"
+			}, { 
+				"category": "1",
+				"icon": "./assets/images/technologies/vue.svg",
+				"text": "Vue"
+			}, { 
+				"category": "1",
+				"icon": "./assets/images/technologies/tailwind.svg",
+				"text": "Tailwind"
+			}, { 
+				"category": "1",
+				"icon": "./assets/images/technologies/bootstrap.svg",
+				"text": "Bootstrap"
+			}, { 
+				"category": "1",
+				"icon": "./assets/images/technologies/figma.svg",
+				"text": "Figma"
+			}, { 
+				"category": "2",
+				"icon": "./assets/images/technologies/php.svg",
+				"text": "PHP"
+			}, { 
+				"category": "2",
+				"icon": "./assets/images/technologies/node.svg",
+				"text": "Node.js"
+			}, { 
+				"category": "2",
+				"icon": "./assets/images/technologies/python.svg",
+				"text": "Python"
+			}, { 
+				"category": "3",
+				"icon": "./assets/images/technologies/mysql.svg",
+				"text": "MySQL"
+			}, { 
+				"category": "3",
+				"icon": "./assets/images/technologies/mongodb.svg",
+				"text": "MongoDB"
+			}, { 
+				"category": "4",
+				"icon": "./assets/images/technologies/docker.svg",
+				"text": "Docker"
+			}, { 
+				"category": "4",
+				"icon": "./assets/images/technologies/firebase.svg",
+				"text": "Firebase"
+			}
+		]
+	},
+	"Projects": {
+		"title": "Proyectos",
+		"projects": [
+			{
+				"title": "ToDo App",
+				"description": "App de tareas con localStorage y diseño responsive. Hecha con HTML, CSS y JavaScript.",
+				"cover": "",
+				"link": ""
+			}, {
+				"title": "Landing FocusZen",
+				"description": "Landing page para una app ficticia de productividad, creada con Astro + Tailwind. Layout limpio y minimalista.",
+				"cover": "",
+				"link": ""
+			}, {
+				"title": "Diseño UI en Figma",
+				"description": "Componentes reutilizables y prototipo funcional de una app de delivery. Interacciones simuladas entre pantallas.",
+				"cover": "",
+				"link": ""
+			}
+		]
+	},
+	"Contact": {
+		"title": "Contacto",
+		"content": "¿Querés hablar sobre un proyecto, mejorar tu web o simplemente decir hola?",
+		"fields": {
+			"nombre": "Nombre:",
+			"correo": "Correo:",
+			"mensaje": "Mensaje:",
+			"enviar": "Enviar"
+		}
+	}
+}

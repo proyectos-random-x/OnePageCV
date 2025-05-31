@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es" data-scheme="light" data-color="default">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="./assets/images/user_profile_one.png" type="image/png" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="title" content="One Page CV — Jhon Doe"/>
+<meta name="description" content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, ducimus."/>
+<meta name="images" content="./assets/images/user_profile_one.png"/>
+<meta name="theme-color" content="#333333"/>
+<meta name="language" content="Spanish"/>
+<meta name="revisit-after" content="10 days"/>
+<meta name="author" content="Miguel92"/>
+<title>One Page CV — Jhon Doe</title>
+<link rel="stylesheet" href="./assets/css/OnePage.css?v2">
+<link rel="stylesheet" href="./assets/css/style.css?v2">
+<script src="./assets/js/app.js" defer></script>
+<script src="./assets/js/form.js" defer></script>
+</head>
+<body>
+
+	<main id="inicio">
+
+		<header>
+			<div class="hero container rounded-xl flex content-center items-center">
+				<div class="content relative">
+					<div class="info text-center h-auto">
+						<h1 class="fw-700">Jhon Doe</h1>
+					</div>
+					<div class="avatar bg-tertiary bg-opacity-20 border-tertiary m-auto rounded-pill overflow-hidden" style="--border-width:4px;--border-opacity:.4">
+						<img src="./assets/images/user_profile_one.png" class="ratio-1x1" alt="Jhon Doe">
+					</div>
+					<div class="tags">
+						<small class="fs-16 fw-600 bg-tertiary color-primary absolute py-5 px-16 rounded-pill tag tag-1">Diseñador</small>
+						<small class="fs-16 fw-600 bg-tertiary color-primary absolute py-5 px-16 rounded-pill tag tag-2">Desarrollador</small>
+						<small class="fs-16 fw-600 bg-tertiary color-primary absolute py-5 px-16 rounded-pill tag tag-3">Freelance</small>
+						<small class="fs-16 fw-600 bg-tertiary color-primary absolute py-5 px-16 rounded-pill tag tag-4">Autodidacta</small>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<!-- 
+			<====== NAVBAR ======> 
+		-->
+		<nav class="py-16 mt-0 top-0 sticky z-999">
+			<div class="menu m-auto container bg-tertiary bg-opacity-20 rounded-pill flex content-center items-center gap-1 blur-10 ">
+				<a href="#sobre_mi" class="menu-link py-5 px-16 rounded-pill block active">Sobre mí</a>
+				<a href="#tecnologias" class="menu-link py-5 px-16 rounded-pill block">Tecnologías</a>
+				<a href="#proyectos" class="menu-link py-5 px-16 rounded-pill block">Proyectos</a>
+				<a href="#contacto" class="menu-link py-5 px-16 rounded-pill block">Contacto</a>
+			</div>
+		</nav>
+
+		<!-- 
+			<====== SOBRE MÍ ======> 
+		-->
+		<section class="container m-auto flex content-center items-start flex-column" id="sobre_mi">
+			<h2>Sobre mí</h2>
+			<div class="content">
+				<p>Hola, soy Jhon Doe —<em>desarrollador web a medio camino entre el minimalismo visual y el código bien condimentado</em>. Si algo se puede refactorizar, ahí estoy yo con mi linterna y una taza de café sin azúcar.</p>
+
+				<p>Me especializo en adoptar proyectos que ya existen y darles una segunda vida: ordenando estilos, reduciendo el peso de las páginas y asegurándome de que todo corra tan suave como una manteca tibia.</p>
+
+				<p>Fuera del editor de código, me gusta estudiar diseño de interfaces con Figma, entender cómo mejorar la experiencia del usuario y coleccionar atajos de teclado como si fueran monedas antiguas.</p>
+			</div>
+		</section>
+
+		<!-- 
+			<====== TECNOLOGIA ======> 
+		-->
+		<section class="container m-auto flex content-center items-start flex-column" id="tecnologias">
+			<h2>Tecnologías</h2>
+			<ul class="list flex flex-wrap column-gap-2"></ul>
+		</section>
+
+		<!-- 
+			<====== PROYECTOS ======> 
+		-->
+		<section class="container m-auto flex content-center items-start flex-column" id="proyectos">
+			<h2>Proyectos</h2>
+			<div class="projects"></div>
+		</section>
+
+		<!-- 
+			<====== CONTACTO ======> 
+		-->
+		<section class="container m-auto flex content-center items-start flex-column" id="contacto">
+			<h2>Contacto</h2>
+			<p>¿Querés hablar sobre un proyecto, mejorar tu web o simplemente decir hola?</p>
+			<!-- Al tener https://formspree.io/f/mjkwnpyw recibiré los mensajes -->
+			<form action="https://formspree.io/f/mjkwnpyw" method="POST" id="form">
+				<div class="form-group">
+				  <label for="nombre">Nombre:</label>
+				  <input type="text" id="nombre" name="nombre" placeholder="Jhon Doe">
+				</div>
+
+				<div class="form-group">
+				  <label for="email">Correo:</label>
+				  <input type="email" id="email" name="email" placeholder="jhondoe@example.com">
+				</div>
+
+				<div class="form-group">
+				  <label for="mensaje">Mensaje:</label>
+				  <textarea id="mensaje" name="mensaje"></textarea>
+				</div>
+			  <p id="my-form-status"></p>
+
+			  <button type="submit">Enviar</button>
+			</form>
+		</section>
+	
+	</main>	
+	
+	<!-- 
+		<====== TEMPLATE: TAG ======> 
+	-->
+	<template id="tag">
+		<small class="fs-16 fw-600 bg-tertiary color-primary absolute py-5 px-16 rounded-pill"></small>
+	</template>
+	<!-- 
+		<====== TEMPLATE: PROYECTO ======> 
+	-->
+	<template id="template_project">
+		<div class="project border-tertiary w-full grid items-center column-gap-2 rounded-lg mb-16 blur-10" style="--border-opacity: .4;">
+			<div class="cover">
+				<img src="./assets/images/user_profile_one.png" alt="cover" class="bg-tertiary bg-opacity-20 rounded-md">
+			</div>
+			<div class="content">
+		  		<h3></h3>
+		  		<p></p>
+		  	</div>
+		  	<a href="#" class="absolute color-tertiary inline-block rounded-pill" target="_blank" rel="external" title="Acceder al proyecto">
+		  		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+		  			<rect width="24" height="24" fill="none"/><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="36" stroke-dashoffset="36" d="M12 5c-3.87 0 -7 3.13 -7 7c0 3.87 3.13 7 7 7c3.87 0 7 -3.13 7 -7"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="36;0"/></path><path stroke-dasharray="12" stroke-dashoffset="12" d="M13 11l7 -7"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.5s" dur="0.2s" values="12;0"/></path><path stroke-dasharray="8" stroke-dashoffset="8" d="M21 3h-6M21 3v6"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.7s" dur="0.2s" values="8;0"/></path></g>
+		  		</svg>
+		  	</a>
+		</div>
+	</template>
+
+
+	<!-- 
+		<====== ACCIONES ======> 
+	-->
+	<div class="allActions fixed blur-10 bg-tertiary bg-opacity-10 z-9999 bottom-0 right-0">
+		<div class="overflow-y-auto">
+			<div class="flex content-start items-start flex-column">
+				<h3 class="fw-700">Lang</h3>
+				<div class="actions">
+					<a href="?lang=es" class="action-item lang uppercase fs-16 fw-500 block text-center rounded-md es">es</a>
+					<a href="?lang=en" class="action-item lang uppercase fs-16 fw-500 block text-center rounded-md en">en</a>
+				</div>
+				<br>
+				<h3 class="fw-700">Scheme</h3>
+				<div class="actions mode">
+					<a href="?scheme=light" class="action-item scheme uppercase fs-16 fw-500 block text-center rounded-md light">light</a>
+					<a href="?scheme=dark" class="action-item scheme uppercase fs-16 fw-500 block text-center rounded-md dark">dark</a>
+				</div>
+				<br>
+				<h3 class="fw-700">Color</h3>
+				<div class="actions color">
+					<a href="?color=default" class="action-item color uppercase fs-16 fw-500 block text-center rounded-md default">default</a>
+					<a href="?color=blue" class="action-item color uppercase fs-16 fw-500 block text-center rounded-md blue">blue</a>
+					<a href="?color=red" class="action-item color uppercase fs-16 fw-500 block text-center rounded-md red">red</a>
+				</div>
+			</div>
+		</div>
+		<div class="absolute">
+			<span class="toggle">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-adjustments-horizontal"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14 6m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M4 6l8 0" /><path d="M16 6l4 0" /><path d="M8 12m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M4 12l2 0" /><path d="M10 12l10 0" /><path d="M17 18m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M4 18l11 0" /><path d="M19 18l1 0" /></svg>
+			</span>
+		</div>
+	</div>
+
+</body>
+</html>

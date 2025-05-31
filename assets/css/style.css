@@ -1,0 +1,268 @@
+nav {
+	.menu {
+		height: 52px;
+		.menu-link {
+			transition: all 0.3s ease-in-out;
+			&.active, &:hover {
+				color: rgba(var(--primary), 1);
+				background: rgba(var(--tertiary), 1);
+			}
+		}
+	}
+}
+
+.hero {
+	min-height: calc(100dvh - 84px);
+	margin: 42px auto 42px auto;
+	.content {
+		--heading: 7rem;
+		.avatar {
+			width: 400px;
+			height: 400px;
+		}
+		.info {
+			margin-bottom: -100px;
+			h1 {
+				font-size: var(--heading);
+				line-height: var(--heading);
+			}
+		}
+		small {
+			top: 40%;
+			animation: flotar 4s ease-in-out infinite;
+			&.tag-1 {
+				left: 3rem;
+			}
+			&.tag-2 {
+				right: 1rem;
+			}
+			&.tag-3 {
+				top: 60%;
+				left: 6rem;
+			}
+			&.tag-4 {
+				top: auto;
+				right: 4rem;
+				bottom: 4rem;
+			}
+		}
+	}
+}
+
+@keyframes flotar {
+	0%   { transform: translateY(0); }
+	50%  { transform: translateY(-10px); }
+	100% { transform: translateY(0); }
+}
+
+section {
+	padding: 2rem 4rem;
+	min-height: 100dvh;
+	> h2 {
+		font-weight: 700;
+		font-size: 3rem;
+		line-height: 3rem;
+		margin-bottom: 1rem;
+	}
+	p {
+		font-size: 1.25rem;
+		line-height: 2rem;
+		margin-bottom: .5rem;
+	}
+}
+
+#tecnologias {
+	ul {
+		li {
+			min-width: 125px;
+			padding: 1rem 0;
+			img {
+				width: 3rem;
+				height: 3rem;
+			}
+			span {
+				font-weight: 500;
+				font-size: 1.325rem;
+				display: block;
+			}
+		}
+	}
+}
+.category-group {
+	h3 {
+		font-weight: 500;
+		display: block;
+		padding: 1rem;
+		text-align: center;
+		font-size: 1.5rem;
+	}
+}
+.projects {
+	--size-width: 220px;
+	--size-height: 160px;
+	width: 100%;
+	.project {
+		grid-template-columns: var(--size-width) 1fr;
+		padding: .875rem;
+		gap: 1rem;
+		&:hover {
+			border: 1px solid rgba(var(--tertiary), .8);
+			background: rgba(var(--tertiary), .1);
+		}
+		.cover, .cover img {
+			width: var(--size-width);
+			height: var(--size-height);
+		}
+		h3 {
+			font-weight: 600;
+			font-size: 1.325rem;
+			line-height: 1.75rem;
+		}
+		a {
+			top: 1rem;
+			right: 1rem;
+			width: 2rem;
+			height: 2rem;
+			svg {
+				width: 2rem;
+				height: 2rem;
+			}
+		}
+	}
+}
+
+form {
+	width: 60%;
+	margin: 0 auto;
+}
+input:not([type="button"],[type="submit"],[type="checkbox"],[type="radio"]), textarea {
+	display: block;
+	width: 100%;
+	border: 1px solid rgba(var(--secondary), .3);
+	background: rgba(var(--secondary), .1);
+	border-radius: .325rem;
+	padding: 0.875rem 1rem;
+	&:focus {
+		box-shadow: 0 0 1rem rgba(var(--secondary), .2);
+		border: 1px solid rgba(var(--secondary), .5);
+	}
+}
+textarea {
+	min-height: 100px;
+}
+.form-group {
+	padding: 0.5rem;
+	margin-bottom: 1rem;
+	width: 100%;
+	label {
+		display: block;
+		font-weight: 600;
+		margin-bottom: 0.5rem;
+	}
+}
+button[type=submit] {
+	border-radius: .325rem;
+	display: block;
+	border: 1px solid rgba(var(--tertiary), .9);
+	background: rgba(var(--tertiary), .1);
+	color: rgba(var(--tertiary), 1);
+	padding: .325rem 1rem;
+	cursor: pointer;
+	&:hover {
+		background: rgba(var(--tertiary), 1);
+		color: rgba(var(--primary), 1);
+	}
+}
+.allActions {
+	padding: 2rem;
+	height: 100dvh;
+	width: 200px;
+	margin-right: -200px;
+	transition: margin-right .4s ease-in-out;
+	> div:firts-child {
+		height: calc(100dvh - 4rem);
+	}
+	&.open {
+		margin-right: 0;
+		transition: margin-right .4s ease-in-out;
+	}
+	.action-item {
+		padding: .5rem	2rem;
+		cursor: pointer;
+		margin-bottom: 0.5rem;
+		&:hover, &.active {
+			font-weight: 700;
+			background: rgba(var(--tertiary), .2);
+			color: rgba(var(--tertiary), 1);
+		}
+	}
+	&.mode {
+		bottom: 6rem;
+	}
+	.absolute {
+		margin-left: -5rem;
+		bottom: 1rem;
+		.toggle {
+			cursor: pointer;
+			svg {
+				width: 2rem;
+				height: 2rem;
+				pointer-events: none;
+			}
+		}
+	}
+}
+@media (width <= 1200px) {
+	.container {
+		width: 90%!important;
+	}
+}
+@media (width <= 1024px) {
+	.container {
+		width: 90%!important;
+	}
+	form {
+		width: 768px;
+	}
+}
+@media (width <= 992px) {
+	.container {
+		width: 768px!important;
+	}
+	form {
+		width: 100%;
+	}
+}
+@media (width <= 768px) {
+	.container {
+		width: 760px!important;
+	}
+	form {
+		width: 100%;
+	}
+	.projects {
+		--size-width: 120px;
+		display: grid;
+		.project {
+			.cover {
+				display: block!!important;
+			}
+		}
+	}
+}
+@media (width <= 560px) {
+	.container {
+		width: 100%!important;
+	}
+	form {
+		width: 100%;
+	}
+	.projects {
+		display: block!important;
+		.project {
+			.cover {
+				display: none;
+			}
+		}
+	}
+}
