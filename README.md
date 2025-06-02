@@ -33,6 +33,14 @@ Desarrolladores, diseñadores, freelancers o cualquier profesional que necesite 
 │ ├── images/
 │ ├── js/
 │ └── json/
+│   ├── es/
+│     ├── bio.json
+│     ├── projects.json
+│     └── technologies.json
+│   └── en/
+│     ├── bio.json
+│     ├── projects.json
+│     └── technologies.json
 │ ├── es.json
 │ └── en.json
 └── README.md
@@ -42,80 +50,28 @@ Desarrolladores, diseñadores, freelancers o cualquier profesional que necesite 
 
 Para activar el formulario, debés registrarte en [Formspree](https://formspree.io/) (gratuito) y obtener tu endpoint. Luego reemplazá el valor del `action` en el formulario por tu URL personalizada, por ejemplo:
 
-```html
-<form action="https://formspree.io/f/xxxxxxxx" method="POST">
-```
-
 ---
 
 ## 🗂️ Archivos JSON
 
 El contenido de la página se gestiona desde archivos `.json` ubicados en:  
-`/assets/json/`
+`/assets/json/` y sus subcarpetas por idioma: `/es/` y `/en/`
 
-Cada archivo representa un idioma:
-- `es.json` – Español
-- `en.json` – Inglés
+Cada carpeta representa un idioma, y dentro contiene los siguientes archivos:
 
-### 📌 Ejemplo de contenido en `es.json`:
-```json
-{ 
-  "Title": "One Page CV — {TU_NOMBRE}",
-  "PersonName": "{TU_NOMBRE}",
-  "NavbarItems": {
-    "sobre_mi": "Sobre mí",
-    "tecnologias": "Tecnologías",
-    "proyectos": "Proyectos",
-    "contacto": "Contacto"
-  },
-  "Traits": [
-    "Habilidad1",
-    "Habilidad2",
-    "Habilidad3",
-    "Habilidad4"
-  ],
-  "AboutMe": {
-    "title": "Sobre mi",
-    "content": "<p>Tu contenido</p>"
-  },
-  "Categories": {
-    "1": "Frontend",
-    "2": "Backend",
-    "3": "Database",
-    "4": "Other"
-  },
-  "Technologies": {
-    "title": "Tecnologías",
-    "list": [
-      { 
-        "category": "1",
-        "icon": "./assets/images/technologies/example.svg",
-        "text": "example"
-      }
-    ]
-  },
-  "Projects": {
-    "title": "Proyectos",
-    "projects": [
-      {
-        "title": "",
-        "description": "",
-        "cover": "",
-        "link": ""
-      }
-    ]
-  },
-  "Contact": {
-    "title": "Contacto",
-    "content": "¿Querés hablar sobre un proyecto, mejorar tu web o simplemente decir hola?",
-    "fields": {
-      "nombre": "Nombre:",
-      "correo": "Correo:",
-      "mensaje": "Mensaje:",
-      "enviar": "Enviar"
-    }
-  }
-}
+```plaintext
+/assets/json/
+  ├── es.json           ← Metadatos generales (como nombre de idioma)
+  └── en.json         
+/assets/json/es/
+  ├── bio.json          ← Datos personales y perfil
+  ├── projects.json     ← Proyectos destacados
+  └── technologies.json ← Tecnologías y habilidades
+
+/assets/json/en/
+  ├── bio.json
+  ├── projects.json
+  └── technologies.json
 ```
 
 ### 🚀 Cómo usar
