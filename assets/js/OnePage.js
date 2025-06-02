@@ -4,7 +4,7 @@ import { sendMessage } from './SendMessage.js';
 // Componentes
 import { NavItem } from './components/nav-item.js';
 // Secciones
-import { Traits } from './sections/traits.js';
+import { Traits } from './sections/Traits.js';
 import { AboutMe } from './sections/AboutMe.js';
 import { Technologies } from './sections/Technologies.js';
 import { Projects } from './sections/Projects.js';
