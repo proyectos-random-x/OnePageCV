@@ -1,0 +1,17 @@
+{
+	"Name": "Jhon Doe",
+	"Picture": [
+		"./assets/images/user_profile.png",
+		"./assets/images/user_profile.webp"
+	],
+	"Traits": [
+		"Diseñador",
+		"Desarrollador",
+		"Freelance",
+		"Autodidacta"
+	],
+	"AboutMe": {
+		"heading": "Sobre mi",
+		"content": "<p>Hola, soy Jhon Doe —<em>desarrollador web a medio camino entre el minimalismo visual y el código bien condimentado</em>. Si algo se puede refactorizar, ahí estoy yo con mi linterna y una taza de café sin azúcar.</p><p>Me especializo en adoptar proyectos que ya existen y darles una segunda vida: ordenando estilos, reduciendo el peso de las páginas y asegurándome de que todo corra tan suave como una manteca tibia.</p><p>Fuera del editor de código, me gusta estudiar diseño de interfaces con Figma, entender cómo mejorar la experiencia del usuario y coleccionar atajos de teclado como si fueran monedas antiguas.</p>"
+	}
+}

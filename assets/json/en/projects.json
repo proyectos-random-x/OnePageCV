@@ -1,0 +1,23 @@
+{
+	"heading": "Projects",
+	"items": [
+		{
+			"title": "ToDo App",
+			"description": "Task app using localStorage and responsive design. Built with HTML, CSS, and JavaScript.",
+			"image": "",
+			"link": ""
+		},
+		{
+			"title": "Landing FocusZen",
+			"description": "Landing page for a fictional productivity app, created with Astro + Tailwind. Clean and minimalist layout.",
+			"image": "",
+			"link": ""
+		},
+		{
+			"title": "UI Design in Figma",
+			"description": "Reusable components and functional prototype for a delivery app. Simulated screen-to-screen interactions.",
+			"image": "",
+			"link": ""
+		}
+	]
+}

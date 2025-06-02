@@ -1,3 +1,40 @@
+.settings {
+	position: fixed;
+	top: 1rem;
+	left: 1rem;
+	gap: .5rem;
+	.toggle {
+		> span {
+			padding: 2px;
+			cursor: pointer;
+			width: 26px;
+			height: 26px;
+			> svg {
+				pointer-events: none;
+			}
+			&:hover {
+				color: rgba(var(--primary), 1);
+				background: rgba(var(--tertiary), 1);
+			}
+		}
+		.dropdown {
+			min-width: 150px;
+			display: none;
+			a {
+				&:hover {
+					color: rgba(var(--secondary), 1);
+				}
+				&.active {
+					color: rgba(var(--primary), 1);
+					background: rgba(var(--tertiary), 1);
+				}
+			}
+			&.open {
+				display: block;
+			}
+		}
+	}
+}
 nav {
 	.menu {
 		height: 52px;
@@ -89,6 +126,7 @@ section {
 	}
 }
 .category-group {
+	flex-grow: 1;
 	h3 {
 		font-weight: 500;
 		display: block;
@@ -173,43 +211,13 @@ button[type=submit] {
 		color: rgba(var(--primary), 1);
 	}
 }
-.allActions {
-	padding: 2rem;
-	height: 100dvh;
-	width: 200px;
-	margin-right: -200px;
-	transition: margin-right .4s ease-in-out;
-	> div:firts-child {
-		height: calc(100dvh - 4rem);
-	}
-	&.open {
-		margin-right: 0;
-		transition: margin-right .4s ease-in-out;
-	}
-	.action-item {
-		padding: .5rem	2rem;
-		cursor: pointer;
-		margin-bottom: 0.5rem;
-		&:hover, &.active {
-			font-weight: 700;
-			background: rgba(var(--tertiary), .2);
-			color: rgba(var(--tertiary), 1);
-		}
-	}
-	&.mode {
-		bottom: 6rem;
-	}
-	.absolute {
-		margin-left: -5rem;
-		bottom: 1rem;
-		.toggle {
-			cursor: pointer;
-			svg {
-				width: 2rem;
-				height: 2rem;
-				pointer-events: none;
-			}
-		}
+#my-form-status {
+	color: red;
+	font-size: 0.875rem;
+	display: block;
+	padding: 0.5rem 0;
+	.success {
+		color: green;
 	}
 }
 @media (width <= 1200px) {
@@ -272,7 +280,7 @@ button[type=submit] {
 			to left, 
 			rgba(var(--primary), .9),  
 			rgba(var(--primary), .9)
-		), url('../images/user_profile_one.png') fixed no-repeat 80% 50%  / cover;
+		), url('../images/user_profile.png') fixed no-repeat 80% 50%  / cover;
 	}
 	.container {
 		width: 100%!important;

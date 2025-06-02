@@ -75,12 +75,12 @@ html, body {
 }
 body {
 	font: normal normal 400 1rem/1.5rem var(--font);
+	color: rgb(var(--tertiary));
 	background: linear-gradient(
 		to left, 
 		rgba(var(--primary), .9),  
 		rgba(var(--primary), .9)
-	), url('../images/user_profile_one.png') fixed no-repeat -80% 50%  / 80%;
-	color: rgb(var(--tertiary));
+	), url('../images/user_profile.png') fixed no-repeat -80% 50%  / 80%;
 }
 
 a {
@@ -146,6 +146,8 @@ p {
 .fw-700{font-weight: 700;}
 
 .fs-16{font-size: 1rem;}
+.fs-24{font-size: 1.5rem;}
+.fs-32{font-size: 2rem;}
 
 .fixed{position: fixed;}
 .relative{position: relative;}
@@ -201,4 +203,14 @@ p {
 .container {
 	margin: 0 auto;
 	width: 80%;
+}
+
+.observer {
+	opacity: 0;
+	transform: translateY(20px);
+	transition: all 0.6s ease;
+}
+.observer.visible {
+	opacity: 1;
+	transform: none;
 }
