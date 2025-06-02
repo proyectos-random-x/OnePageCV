@@ -2,7 +2,7 @@
  * Creamos variables
 */
 :root {
-	--primary: 237, 244, 242;
+	--primary: 224, 244, 224;
 	--secondary: 124, 131, 49;
 	--tertiary: 49, 71, 58;
 	
@@ -16,31 +16,60 @@
 	--font: system-ui, -apple-system, "Segoe UI", "Inter", "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 [data-scheme="dark"][data-color="default"] {
-	--primary: 24, 28, 26;
-	--secondary: 181, 202,  90;
-	--tertiary:  143, 168, 150;
+	--primary: 23, 24, 24;
+	--secondary: 24, 49, 11;
+	--tertiary: 224, 244, 224;
 }
 [data-color="blue"] {
-	--primary: 168, 241, 255;
-	--secondary: 111, 230, 252;
-	--tertiary: 18, 15, 71;
+	--primary: 199, 222, 255;
+	--secondary: 167, 206, 252;
+	--tertiary: 36, 40, 71;
 }
 [data-scheme="dark"][data-color="blue"] {
-	--primary: 97, 218, 251;
-	--secondary: 59, 130, 246;
-	--tertiary: 8, 10, 31;
+	--primary: 19, 22, 25;
+	--secondary: 16, 20, 25;
+	--tertiary: 199, 222, 255;
 }
 [data-color="red"] {
-	--primary: 255, 179, 186;
-	--secondary: 255, 105, 97;
-	--tertiary: 200, 50, 50;
+	--primary: 255, 209, 209;
+	--secondary: 255, 123, 123;
+	--tertiary: 185, 30, 30;
 }
 [data-scheme="dark"][data-color="red"] {
-	--primary: 255, 110, 110;
-	--secondary: 200, 50, 50;
-	--tertiary: 30, 5, 5;
+	--primary: 25, 10, 10;
+	--secondary: 20, 5, 5;
+	--tertiary: 255, 209, 209;
+}
+[data-color="pink"] {
+	--primary: 252, 200, 255;
+	--secondary: 221, 160, 221;
+	--tertiary: 125, 59, 152;
+}
+[data-scheme="dark"][data-color="pink"] {
+	--primary: 85, 35, 70;
+	--secondary: 120, 60, 110;
+	--tertiary: 252, 200, 255;
 }
 
+*::selection {
+	background: rgb(var(--tertiary));
+	color: rgb(var(--primary));
+}
+*::-webkit-scrollbar {
+	-webkit-appearance: none;
+}
+*::-webkit-scrollbar:vertical {
+	width:8px;
+}
+*::-webkit-scrollbar:horizontal {
+	height: 8px;
+}
+*::-webkit-scrollbar-thumb {
+	background-color: rgb(var(--secondary));
+}
+*::-webkit-scrollbar-track {
+	background-color: rgb(var(--tertiary));
+}
 /**
  * Reseteamos todos los estilos
 */
@@ -74,7 +103,7 @@ html, body {
 	width: 100%;
 }
 body {
-	font: normal normal 400 1rem/1.5rem var(--font);
+	font: normal normal 400 1lh/1.5rem var(--font);
 	color: rgb(var(--tertiary));
 	background: linear-gradient(
 		to left, 

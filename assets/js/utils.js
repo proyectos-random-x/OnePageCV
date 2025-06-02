@@ -1,19 +1,25 @@
-export async function loader({ filename, base = false }) {
-  	const language = localStorage.getItem('lang') || 'es';
-
-  	let url = `../assets/json/${language}` + (!base ? `/${filename}` : '') +  `.json`;
-
+export async function loader({ filename = '', base = false }) {
 	try {
-		const response = await fetch(url);
+		// Idioma actual o español por defecto
+		const lang = localStorage.getItem('lang') || 'es';
 
-		if (!response.ok) {
-			throw new Error(`Error ${url}: ${response.status} ${response.statusText}`);
+		// Base del proyecto (mejor usar URL que concatenación)
+		const basePath = `${location.origin}${location.pathname}`.replace(/\/+$/, '');
+
+		// Ruta al archivo JSON
+		const path = base ? `/assets/json/${lang}.json` : `/assets/json/${lang}/${filename}.json`;
+
+		// Petición
+		const response = await fetch(`${basePath}${path}`);
+		const { ok: Success, status, statusText } = response;
+		if (!Success) {
+			throw new Error(`No se pudo cargar: ${url} → [${status}] ${statusText}`);
 		}
 
-		const data = await response.json();
-		return data;
+		// Resultado
+		return await response.json();
 	} catch (error) {
-		console.error('loader Error:', error);
+		console.error('[loader] Error al cargar JSON:', error.message);
 		return null;
 	}
 }
@@ -46,27 +52,33 @@ export function newElement({ el, content = '', classes = '', append = null, ...r
 	return _element;
 }
 
-export function scrollSpy() {
-	// Scroll-Spy
+export function scrollSpy(offset = 70) {
 	const menu = document.querySelector('.menu');
-	const sections = document.querySelectorAll("section");
-	const items = menu.querySelectorAll(".menu-link");
-	window.addEventListener("scroll", () => {
-	  	let current = "";
-	  	sections.forEach(Section => {
-	    	const sectionTop = Section.offsetTop - 70;
-	    	const sectionHeight = Section.clientHeight;
-	    	if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
-	      	current = Section.getAttribute("id");
-	    	}
-	  	});
+	if (!menu) return;
 
-	  	items.forEach(link => {
-	    	link.classList.remove("active");
-	    	if (link.getAttribute("href") === `#${current}`) {
-	      	link.classList.add("active");
-	    	}
-	  	});
+	const items = menu.querySelectorAll('.menu-link');
+	const sections = [...document.querySelectorAll('section')];
+
+	if (!sections.length || !items.length) return;
+
+	window.addEventListener('scroll', () => {
+		const scrollPos = window.scrollY;
+		let currentId = '';
+
+		for (const section of sections) {
+			const top = section.offsetTop - offset;
+			const height = section.clientHeight;
+
+			if (scrollPos >= top && scrollPos < top + height) {
+				currentId = section.id;
+				break; // Salimos en cuanto encontremos la actual
+			}
+		}
+
+		items.forEach(link => {
+			const href = link.getAttribute('href');
+			link.classList.toggle('active', href === `#${currentId}`);
+		});
 	});
 }
 

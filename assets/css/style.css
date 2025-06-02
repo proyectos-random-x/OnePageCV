@@ -3,18 +3,20 @@
 	top: 1rem;
 	left: 1rem;
 	gap: .5rem;
+	font-size: 1rem;
 	.toggle {
 		> span {
-			padding: 2px;
+			padding: 0 2px;
 			cursor: pointer;
-			width: 26px;
-			height: 26px;
+			height: 32px;
 			> svg {
+				width: 32px;
+				height: 32px;
 				pointer-events: none;
 			}
 			&:hover {
-				color: rgba(var(--primary), 1);
-				background: rgba(var(--tertiary), 1);
+				color: rgba(var(--primary), 1)!important;
+				background: rgba(var(--tertiary), 1)!important;
 			}
 		}
 		.dropdown {
@@ -22,11 +24,12 @@
 			display: none;
 			a {
 				&:hover {
-					color: rgba(var(--secondary), 1);
+					color: rgba(var(--tertiary), 1)!important;
+					background: rgba(var(--primary), .1)!important;
 				}
 				&.active {
-					color: rgba(var(--primary), 1);
-					background: rgba(var(--tertiary), 1);
+					color: rgba(var(--primary), 1)!important;
+					background: rgba(var(--tertiary), 1)!important;
 				}
 			}
 			&.open {
@@ -108,6 +111,22 @@ section {
 	}
 }
 
+footer {
+	text-align: center;
+	padding: 2rem 0;
+	.heart {
+		color: #e25555;
+		animation: latir .6s infinite;
+	}
+	p:last-child {
+		font-size: 0.85rem;
+	}
+}
+
+@keyframes latir {
+	0%, 100% { transform: scale(1); }
+	50% { transform: scale(1.2); }
+}
 #tecnologias {
 	ul {
 		li {
@@ -217,7 +236,7 @@ button[type=submit] {
 	display: block;
 	padding: 0.5rem 0;
 	.success {
-		color: green;
+		color: green!important;
 	}
 }
 @media (width <= 1200px) {
