@@ -1,4 +1,4 @@
-export async function loader({ filename = '', base = false }) {
+export async function loader({ filename = 'base', base = false }) {
 	try {
 		// Idioma actual o español por defecto
 		const lang = localStorage.getItem('lang') || 'es';
@@ -7,7 +7,7 @@ export async function loader({ filename = '', base = false }) {
 		const basePath = `${location.origin}${location.pathname}`.replace(/\/+$/, '');
 
 		// Ruta al archivo JSON
-		const path = base ? `/assets/json/${lang}.json` : `/assets/json/${lang}/${filename}.json`;
+		const path = `/assets/json/${lang}/${filename}.json`;
 
 		// Petición
 		const response = await fetch(`${basePath}${path}`);
