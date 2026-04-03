@@ -1,28 +1,37 @@
-import { loader, attributes } from '../utils.js';
+/**
+ * Technologies.js
+ * Carga y renderiza la sección de tecnologías agrupadas por categoría.
+ */
+
+import { loader, attributes }              from '../utils.js';
 import { orderByCategory, sectionCategory } from '../components/tech.js';
 
 const getData = async () => {
-	const { heading, items } = await loader({ filename: 'technologies' });
-	const { Categories: categoriesMap } = await loader({ base: true });
+	const [techData, baseData] = await Promise.all([
+		loader({ filename: 'technologies' }),
+		loader({ base: true })
+	]);
 
-	// Cambiar Heading
-	const Heading = attributes('technologie', 'heading');
-	if (Heading) Heading.textContent = heading;
+	if (!techData || !baseData) return;
 
-	// Añadir items
-	const container = document.getElementById('tecnologias');
-	if (!container) return;
+	const { heading, items }     = techData;
+	const { Categories: categoriesMap } = baseData;
 
+	// Heading
+	const headingEl = attributes('technologie', 'heading');
+	if (headingEl) headingEl.textContent = heading;
+
+	// Lista
 	const listElement = attributes('technologie', 'list');
+	if (!listElement) return;
+
 	listElement.innerHTML = '';
 
 	const grouped = orderByCategory(items);
-	
-	Object.entries(grouped).forEach(([categoryId, items]) => {
-		const section = sectionCategory(categoryId, items, categoriesMap);
+	Object.entries(grouped).forEach(([categoryId, categoryItems]) => {
+		const section = sectionCategory(categoryId, categoryItems, categoriesMap);
 		listElement.appendChild(section);
 	});
-	
-}
+};
 
 export const Technologies = getData();

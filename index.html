@@ -3,124 +3,191 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="shortcut icon" href="./assets/images/user_profile.png" type="image/png" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta name="title" content="One Page CV — Jhon Doe"/>
-<meta name="description" content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, ducimus."/>
-<meta name="images" content="./assets/images/user_profile.png"/>
-<meta name="theme-color" content="#333333"/>
-<meta name="language" content="Spanish"/>
-<meta name="revisit-after" content="10 days"/>
-<meta name="author" content="Miguel92"/>
+<!-- SEO básico -->
 <title>One Page CV — Jhon Doe</title>
+<meta name="title" content="One Page CV — Jhon Doe">
+<meta name="description" content="Portfolio y CV online de Jhon Doe — desarrollador web. Proyectos, tecnologías y contacto en una sola página.">
+<meta name="author" content="Jhon Doe">
+<meta name="robots" content="index, follow">
+<meta name="language" content="Spanish">
+<meta name="revisit-after" content="10 days">
+<meta name="theme-color" content="#31473a">
+<!-- Canonical — reemplazá con tu dominio real -->
+<link rel="canonical" href="https://tu-dominio.com/">
+<!-- Open Graph (Facebook / LinkedIn / WhatsApp) -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tu-dominio.com/">
+<meta property="og:title" content="One Page CV — Jhon Doe">
+<meta property="og:description" content="Portfolio y CV online de Jhon Doe — desarrollador web. Proyectos, tecnologías y contacto en una sola página.">
+<meta property="og:image" content="https://tu-dominio.com/assets/images/user_profile.png">
+<meta property="og:image:alt" content="Foto de perfil de Jhon Doe">
+<meta property="og:locale" content="es_AR">
+<meta property="og:site_name" content="One Page CV">
+<!-- Twitter / X Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://tu-dominio.com/">
+<meta name="twitter:title" content="One Page CV — Jhon Doe">
+<meta name="twitter:description" content="Portfolio y CV online de Jhon Doe — desarrollador web.">
+<meta name="twitter:image" content="https://tu-dominio.com/assets/images/user_profile.png">
+<meta name="twitter:image:alt" content="Foto de perfil de Jhon Doe">
+<!-- Favicon -->
+<link rel="shortcut icon" href="./assets/images/user_profile.png" type="image/png">
+<!-- Estilos -->
 <link rel="stylesheet" href="./assets/css/OnePage.css">
 <link rel="stylesheet" href="./assets/css/style.css">
+<!-- JS principal -->
 <script src="./assets/js/OnePage.js" type="module" defer></script>
 </head>
 <body id="inicio">
 
 	<main>
 
-		<div class="settings flex content-start items-center gap-2 fixed z-9999">
+		<!-- ===== CONFIGURACIÓN (idioma / esquema / color) ===== -->
+		<div class="settings flex content-start items-center gap-2 fixed z-9999" role="toolbar" aria-label="Opciones de configuración">
+
+			<!-- Idioma -->
 			<div class="toggle">
-				<span class="rounded-sm block" data-toggle="langs">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-language"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 5h7" /><path d="M9 3v2c0 4.418 -2.239 8 -5 8" /><path d="M5 9c0 2.144 2.952 3.908 6.7 4" /><path d="M12 20l4 -9l4 9" /><path d="M19.1 18h-6.2" /></svg>
-				</span>
-				<div class="dropdown absolute rounded-lg bg-primary bg-opacity-90 color-tertiary py-8 px-8" id="langs">
-					<a href="?lang=es" class="py-5 px-8 block rounded-md es" data-lang="es">Español</a>
-					<a href="?lang=en" class="py-5 px-8 block rounded-md en" data-lang="en">English</a>
+				<button class="rounded-sm toggle-btn" data-toggle="langs" aria-haspopup="true" aria-expanded="false" aria-controls="langs" aria-label="Cambiar idioma" type="button">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon" aria-hidden="true" focusable="false">
+						<path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+						<path d="M4 5h7"/><path d="M9 3v2c0 4.418 -2.239 8 -5 8"/>
+						<path d="M5 9c0 2.144 2.952 3.908 6.7 4"/>
+						<path d="M12 20l4 -9l4 9"/><path d="M19.1 18h-6.2"/>
+					</svg>
+				</button>
+				<div class="dropdown absolute rounded-lg bg-primary bg-opacity-90 color-tertiary py-8 px-8" id="langs" role="menu" aria-label="Seleccionar idioma">
+					<a href="?lang=es" class="py-5 px-8 block rounded-md es" data-lang="es" role="menuitem">Español</a>
+					<a href="?lang=en" class="py-5 px-8 block rounded-md en" data-lang="en" role="menuitem">English</a>
 				</div>
 			</div>
+
+			<!-- Esquema de color (dark/light) -->
 			<div class="toggle">
-				<span class="rounded-sm block" data-toggle="scheme">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-brightness-down"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 8a4 4 0 1 1 -3.995 4.2l-.005 -.2l.005 -.2a4 4 0 0 1 3.995 -3.8z" /><path d="M12 4a1 1 0 0 1 .993 .883l.007 .127a1 1 0 0 1 -1.993 .117l-.007 -.127a1 1 0 0 1 1 -1z" /><path d="M17 6a1 1 0 0 1 .993 .883l.007 .127a1 1 0 0 1 -1.993 .117l-.007 -.127a1 1 0 0 1 1 -1z" /><path d="M19 11a1 1 0 0 1 .993 .883l.007 .127a1 1 0 0 1 -1.993 .117l-.007 -.127a1 1 0 0 1 1 -1z" /><path d="M17 16a1 1 0 0 1 .993 .883l.007 .127a1 1 0 0 1 -1.993 .117l-.007 -.127a1 1 0 0 1 1 -1z" /><path d="M12 18a1 1 0 0 1 .993 .883l.007 .127a1 1 0 0 1 -1.993 .117l-.007 -.127a1 1 0 0 1 1 -1z" /><path d="M7 16a1 1 0 0 1 .993 .883l.007 .127a1 1 0 0 1 -1.993 .117l-.007 -.127a1 1 0 0 1 1 -1z" /><path d="M5 11a1 1 0 0 1 .993 .883l.007 .127a1 1 0 0 1 -1.993 .117l-.007 -.127a1 1 0 0 1 1 -1z" /><path d="M7 6a1 1 0 0 1 .993 .883l.007 .127a1 1 0 0 1 -1.993 .117l-.007 -.127a1 1 0 0 1 1 -1z" /></svg>
-				</span>
-				<div class="dropdown absolute rounded-lg bg-primary bg-opacity-90 color-tertiary py-8 px-8" id="scheme">
-					<a href="?scheme=light" class="py-5 px-8 block rounded-md light" data-scheme="light">Light</a>
-					<a href="?scheme=dark" class="py-5 px-8 block rounded-md dark" data-scheme="dark">Dark</a>
+				<button class="rounded-sm toggle-btn" data-toggle="scheme" aria-haspopup="true" aria-expanded="false" aria-controls="scheme" aria-label="Cambiar esquema de color" type="button">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon" aria-hidden="true" focusable="false">
+						<path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+						<path d="M12 8a4 4 0 1 1 -3.995 4.2l-.005 -.2l.005 -.2a4 4 0 0 1 3.995 -3.8z"/>
+						<path d="M12 4a1 1 0 0 1 .993 .883l.007 .127a1 1 0 0 1 -1.993 .117l-.007 -.127a1 1 0 0 1 1 -1z"/>
+						<path d="M17 6a1 1 0 0 1 .993 .883l.007 .127a1 1 0 0 1 -1.993 .117l-.007 -.127a1 1 0 0 1 1 -1z"/>
+						<path d="M19 11a1 1 0 0 1 .993 .883l.007 .127a1 1 0 0 1 -1.993 .117l-.007 -.127a1 1 0 0 1 1 -1z"/>
+						<path d="M17 16a1 1 0 0 1 .993 .883l.007 .127a1 1 0 0 1 -1.993 .117l-.007 -.127a1 1 0 0 1 1 -1z"/>
+						<path d="M12 18a1 1 0 0 1 .993 .883l.007 .127a1 1 0 0 1 -1.993 .117l-.007 -.127a1 1 0 0 1 1 -1z"/>
+						<path d="M7 16a1 1 0 0 1 .993 .883l.007 .127a1 1 0 0 1 -1.993 .117l-.007 -.127a1 1 0 0 1 1 -1z"/>
+						<path d="M5 11a1 1 0 0 1 .993 .883l.007 .127a1 1 0 0 1 -1.993 .117l-.007 -.127a1 1 0 0 1 1 -1z"/>
+						<path d="M7 6a1 1 0 0 1 .993 .883l.007 .127a1 1 0 0 1 -1.993 .117l-.007 -.127a1 1 0 0 1 1 -1z"/>
+					</svg>
+				</button>
+				<div class="dropdown absolute rounded-lg bg-primary bg-opacity-90 color-tertiary py-8 px-8" id="scheme" role="menu" aria-label="Seleccionar esquema">
+					<a href="?scheme=light" class="py-5 px-8 block rounded-md light" data-scheme="light" role="menuitem">Light</a>
+					<a href="?scheme=dark"  class="py-5 px-8 block rounded-md dark"  data-scheme="dark"  role="menuitem">Dark</a>
 				</div>
 			</div>
+
+			<!-- Paleta de colores -->
 			<div class="toggle">
-				<span class="rounded-sm block" data-toggle="color">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-palette"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 21a9 9 0 0 1 0 -18c4.97 0 9 3.582 9 8c0 1.06 -.474 2.078 -1.318 2.828c-.844 .75 -1.989 1.172 -3.182 1.172h-2.5a2 2 0 0 0 -1 3.75a1.3 1.3 0 0 1 -1 2.25" /><path d="M8.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /><path d="M12.5 7.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /><path d="M16.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /></svg>
-				</span>
-				<div class="dropdown absolute rounded-lg bg-primary bg-opacity-90 color-tertiary py-8 px-8" id="color">
-					<a href="?color=default" class="py-5 px-8 block rounded-md default" data-color="default">Default</a>
-					<a href="?color=blue" class="py-5 px-8 block rounded-md blue" data-color="blue">Blue/Azul</a>
-					<a href="?color=red" class="py-5 px-8 block rounded-md red" data-color="red">Red/Rojo</a>
-					<a href="?color=pink" class="py-5 px-8 block rounded-md pink" data-color="pink">Pink/Rosa</a>
+				<button class="rounded-sm toggle-btn" data-toggle="color" aria-haspopup="true" aria-expanded="false" aria-controls="color" aria-label="Cambiar paleta de colores" type="button">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon" aria-hidden="true" focusable="false">
+						<path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+						<path d="M12 21a9 9 0 0 1 0 -18c4.97 0 9 3.582 9 8c0 1.06 -.474 2.078 -1.318 2.828c-.844 .75 -1.989 1.172 -3.182 1.172h-2.5a2 2 0 0 0 -1 3.75a1.3 1.3 0 0 1 -1 2.25"/>
+						<path d="M8.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/>
+						<path d="M12.5 7.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/>
+						<path d="M16.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/>
+					</svg>
+				</button>
+				<div class="dropdown absolute rounded-lg bg-primary bg-opacity-90 color-tertiary py-8 px-8" id="color" role="menu" aria-label="Seleccionar color">
+					<a href="?color=default" class="py-5 px-8 block rounded-md default" data-color="default" role="menuitem">Default</a>
+					<a href="?color=blue" class="py-5 px-8 block rounded-md blue" data-color="blue" role="menuitem">Blue/Azul</a>
+					<a href="?color=red" class="py-5 px-8 block rounded-md red" data-color="red" role="menuitem">Red/Rojo</a>
+					<a href="?color=pink" class="py-5 px-8 block rounded-md pink" data-color="pink" role="menuitem">Pink/Rosa</a>
 				</div>
 			</div>
+
 		</div>
+		<!-- /settings -->
 
 		<div class="container">
-			<header class="hero rounded-xl flex content-center items-center">
+
+			<!-- ===== HERO ===== -->
+			<header class="hero rounded-xl flex content-center items-center" role="banner">
 				<div class="content relative">
 					<div class="info text-center h-auto">
 						<h1 class="fw-700 observer" data-person="name">Jhon Doe</h1>
 					</div>
 					<div class="avatar bg-tertiary bg-opacity-20 border-tertiary m-auto rounded-pill overflow-hidden">
-						<img data-person="photo" src="./assets/images/user_profile.png" class="ratio-1x1 observer" alt="Jhon Doe">
+						<img data-person="photo" src="./assets/images/user_profile.png" class="ratio-1x1 observer" alt="Foto de perfil de Jhon Doe" width="400" height="400" loading="eager">
 					</div>
-					<div class="traits" data-object="traits"></div>
+					<div class="traits" data-object="traits" aria-label="Características personales"></div>
 				</div>
 			</header>
 
-			<nav class="py-16 mt-0 top-0 sticky z-999">
-				<div class="menu m-auto bg-tertiary bg-opacity-20 rounded-pill flex content-center items-center flex-wrap gap-1 blur-10" data-object="menu">
-				</div>
+			<!-- ===== NAV ===== -->
+			<nav class="py-16 mt-0 top-0 sticky z-999" aria-label="Navegación principal">
+				<div class="menu m-auto bg-tertiary bg-opacity-20 rounded-pill flex content-center items-center flex-wrap gap-1 blur-10" data-object="menu" role="menubar"></div>
 			</nav>
 
-			<!-- SOBRE MÍ -->
-			<section class="m-auto flex content-center items-start flex-column" id="sobre_mi">
-				<h2 data-aboutme="heading"></h2>
+			<!-- ===== SOBRE MÍ ===== -->
+			<section class="m-auto flex content-center items-start flex-column" id="sobre_mi" aria-labelledby="heading-sobre-mi">
+				<h2 id="heading-sobre-mi" data-aboutme="heading"></h2>
 				<div class="content" data-aboutme="content"></div>
 			</section>
 
-			<!-- TECNOLOGIA -->
-			<section class="m-auto flex content-center items-start flex-column" id="tecnologias">
-				<h2 data-technologie="heading"></h2>
-				<ul data-technologie="list" class="list flex flex-wrap column-gap-2"></ul>
+			<!-- ===== TECNOLOGÍAS ===== -->
+			<section class="m-auto flex content-center items-start flex-column" id="tecnologias" aria-labelledby="heading-tecnologias">
+				<h2 id="heading-tecnologias" data-technologie="heading"></h2>
+				<div data-technologie="list" class="list flex flex-wrap column-gap-2"></div>
 			</section>
 
-			<!-- PROYECTOS -->
-			<section class="m-auto flex content-center items-start flex-column" id="proyectos">
-				<h2 data-projects="heading"></h2>
-				<div data-projects="list" class="projects"></div>
+			<!-- ===== PROYECTOS ===== -->
+			<section class="m-auto flex content-center items-start flex-column" id="proyectos" aria-labelledby="heading-proyectos">
+				<h2 id="heading-proyectos" data-projects="heading"></h2>
+				<div data-projects="list" class="projects" role="list"></div>
 			</section>
 
-			<!-- CONTACTO -->
-			<section class="container m-auto flex content-center items-start flex-column" id="contacto">
-				<h2 data-contact="heading">Contacto</h2>
+			<!-- ===== CONTACTO ===== -->
+			<section class="container m-auto flex content-center items-start flex-column" id="contacto" aria-labelledby="heading-contacto">
+				<h2 id="heading-contacto" data-contact="heading">Contacto</h2>
 				<p data-contact="description">¿Querés hablar sobre un proyecto, mejorar tu web o simplemente decir hola?</p>
-				<!-- Al tener https://formspree.io/f/mjkwnpyw recibiré los mensajes -->
-				<form method="POST" id="form">
-				  <p id="my-form-status"></p>
+				<!--
+					Para activar el envío: registrate en https://formspree.io/
+					y reemplazá el action con tu endpoint, ej:
+					action="https://formspree.io/f/TU_ID"
+				-->
+				<form id="form" method="POST" action="https://formspree.io/f/mjkwnpyw" novalidate aria-label="Formulario de contacto">
+					<!-- El status se anuncia por el lector de pantalla gracias a aria-live -->
+					<p id="my-form-status" role="status" aria-live="polite" aria-atomic="true"></p>
 					<div class="form-group">
-					  <label for="nombre">Nombre:</label>
-					  <input type="text" id="nombre" name="nombre" placeholder="Jhon Doe">
+						<label for="nombre">Nombre:</label>
+						<input type="text" id="nombre" name="nombre" placeholder="Jhon Doe" autocomplete="name" aria-required="true">
 					</div>
 
 					<div class="form-group">
-					  <label for="correo">Correo:</label>
-					  <input type="email" id="correo" name="email" placeholder="jhondoe@example.com">
+						<label for="correo">Correo:</label>
+						<input type="email" id="correo" name="email" placeholder="jhondoe@example.com" autocomplete="email" aria-required="true">
 					</div>
 
 					<div class="form-group">
-					  <label for="mensaje">Mensaje:</label>
-					  <textarea id="mensaje" name="mensaje"></textarea>
+						<label for="mensaje">Mensaje:</label>
+						<textarea id="mensaje" name="mensaje" aria-required="true" aria-describedby="mensaje-hint"></textarea>
+						<small id="mensaje-hint" class="form-hint">Mínimo 10 caracteres.</small>
 					</div>
 
-				  <button type="submit">Enviar</button>
+					<button type="submit">Enviar</button>
 				</form>
 			</section>
-		</div>
-		<footer>
-			<p>Copyright &copy; <span>2025</span></p>
-			<p>Hecho con <span class="heart">❤</span> y cariño.</p>
+
+		</div><!-- /container -->
+
+		<footer role="contentinfo">
+			<p>Copyright &copy; 2025-<span id="footer-year">2026</span></p>
+			<p>Hecho con <span class="heart" aria-hidden="true">❤</span><span class="sr-only">amor</span> y cariño.</p>
 		</footer>
+
 	</main>
+
+	<!-- Año dinámico en footer -->
+	<script>
+		document.getElementById('footer-year').textContent = new Date().getFullYear();
+	</script>
 
 </body>
 </html>

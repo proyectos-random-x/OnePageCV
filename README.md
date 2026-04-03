@@ -1,104 +1,194 @@
 # 🧑‍💻 One Page CV
 
-![screenshot](screenshot.png)
-
-Un portfolio personal minimalista y profesional que funciona como CV online de una sola página. Creado con tecnologías web fundamentales: HTML, CSS y JavaScript vanilla.
-
-## ✨ Características principales
-
-🌐 **Multi-idioma**: Cambia entre idiomas fácilmente - toda la información se gestiona a través de archivos .json independientes, sin necesidad de tocar el código HTML.
-
-🎨 **Personalización visual**:
-- Modo **dark/light** para adaptarse a las preferencias del usuario
-- **3 esquemas de colores** diferentes para darle tu toque personal
-- Diseño completamente **responsivo** que se ve perfecto en cualquier dispositivo.
-
-⚡ **Fácil de usar**:
-- **Configuración sin código**: Solo editá los archivos JSON con tu información personal
-- **Plug & play**: Descargá, personalizá y publicá
-- **Liviano y rápido**: Sin frameworks pesados, solo tecnologías web puras
-
-### 🎯 Perfecto para
-Desarrolladores, diseñadores, freelancers o cualquier profesional que necesite una presencia web rápida y profesional sin complicaciones técnicas. Ideal como primer proyecto o como alternativa minimalista a portfolios más complejos.
+Un portfolio personal minimalista y profesional que funciona como CV online de una sola página. Construido con HTML, CSS y JavaScript vanilla — sin frameworks, sin dependencias.
 
 ---
 
-### 📁 Estructura del proyecto
+## ✨ Características
 
-```plaintext
+- 🌐 **Multi-idioma** — toda la información se gestiona desde archivos `.json`, sin tocar el HTML
+- 🎨 **Personalización visual** — modo dark/light y 3 paletas de color
+- ♿ **Accesible** — estructura semántica, `aria-*`, `role`, `focus-visible` y respeto por `prefers-reduced-motion`
+- 🔍 **SEO** — Open Graph, Twitter Cards, `canonical`, `robots`, `lang` sincronizado
+- ⚡ **Liviano y rápido** — sin frameworks, lazy-load de imágenes, scroll-spy pasivo
+
+---
+
+## 📁 Estructura del proyecto
+
+```
 📦 one-page-cv/
 ├── index.html
 ├── assets/
-│ ├── css/
-│ ├── images/
-│ ├── js/
-│ └── json/
-│   ├── es/
-│     ├── bio.json
-│     ├── projects.json
-│     └── technologies.json
-│   └── en/
-│     ├── bio.json
-│     ├── projects.json
-│     └── technologies.json
-│ ├── es.json
-│ └── en.json
+│   ├── css/
+│   │   ├── OnePage.css      ← Variables, reset, utilidades
+│   │   └── style.css        ← Componentes y estilos específicos
+│   ├── images/
+│   ├── js/
+│   │   ├── OnePage.js       ← Punto de entrada
+│   │   ├── Observer.js      ← IntersectionObserver (lazy load + reveal)
+│   │   ├── SendMessage.js   ← Lógica del formulario
+│   │   ├── utils.js         ← loader, attributes, newElement, scrollSpy, params
+│   │   ├── components/
+│   │   │   ├── badge.js
+│   │   │   ├── nav-item.js
+│   │   │   ├── project.js
+│   │   │   └── tech.js
+│   │   └── sections/
+│   │       ├── AboutMe.js
+│   │       ├── Projects.js
+│   │       ├── Technologies.js
+│   │       └── Traits.js
+│   └── json/
+│       ├── es.json           ← Config base en español (NavbarItems, Contact, Categories…)
+│       ├── en.json           ← Config base en inglés
+│       ├── es/
+│       │   ├── bio.json
+│       │   ├── projects.json
+│       │   └── technologies.json
+│       └── en/
+│           ├── bio.json
+│           ├── projects.json
+│           └── technologies.json
 └── README.md
 ```
 
+---
+
 ## 📩 Formulario de contacto
 
-Para activar el formulario, debés registrarte en [Formspree](https://formspree.io/) (gratuito) y obtener tu endpoint. Luego reemplazá el valor del `action` en el formulario por tu URL personalizada, por ejemplo:
+Registrate en [Formspree](https://formspree.io/) (gratuito) y reemplazá el `action` del formulario:
+
+```html
+<form action="https://formspree.io/f/TU_ID" ...>
+```
 
 ---
 
 ## 🗂️ Archivos JSON
 
-El contenido de la página se gestiona desde archivos `.json` ubicados en:  
-`/assets/json/` y sus subcarpetas por idioma: `/es/` y `/en/`
+### `{lang}.json` (ej. `es.json`) — configuración base del idioma
 
-Cada carpeta representa un idioma, y dentro contiene los siguientes archivos:
-
-```plaintext
-/assets/json/
-  ├── es.json           ← Metadatos generales (como nombre de idioma)
-  └── en.json         
-/assets/json/es/
-  ├── bio.json          ← Datos personales y perfil
-  ├── projects.json     ← Proyectos destacados
-  └── technologies.json ← Tecnologías y habilidades
-
-/assets/json/en/
-  ├── bio.json
-  ├── projects.json
-  └── technologies.json
+```json
+{
+  "Title": "One Page CV — Tu Nombre",
+  "NavbarItems": {
+    "sobre_mi": "Sobre mí",
+    "tecnologias": "Tecnologías",
+    "proyectos": "Proyectos",
+    "contacto": "Contacto"
+  },
+  "Categories": {
+    "frontend": "Frontend",
+    "backend": "Backend"
+  },
+  "Contact": {
+    "heading": "Contacto",
+    "description": "¿Querés hablar?",
+    "fields": {
+      "nombre": "Nombre:",
+      "correo": "Correo:",
+      "mensaje": "Mensaje:",
+      "enviar": "Enviar"
+    },
+    "status": {
+      "empty":   "El campo _key_ es obligatorio.",
+      "email":   "El correo no es válido.",
+      "message": "El mensaje debe tener al menos 10 caracteres.",
+      "success": "¡Mensaje enviado!",
+      "error":   "Ocurrió un error. Intentá de nuevo.",
+      "fail":    "Error de red."
+    }
+  }
+}
 ```
 
-### 🚀 Cómo usar
-Cloná el repositorio:
+### `{lang}/bio.json`
+
+```json
+{
+  "Name": "Jhon Doe",
+  "Picture": ["./assets/images/user_profile.png", "./assets/images/user_profile.webp"],
+  "Traits": ["Desarrollador", "Creativo", "Freelancer"],
+  "AboutMe": {
+    "heading": "Sobre mí",
+    "content": "<p>Tu descripción aquí.</p>"
+  }
+}
+```
+
+### `{lang}/projects.json`
+
+```json
+{
+  "heading": "Proyectos",
+  "items": [
+    {
+      "title": "Nombre del proyecto",
+      "description": "Descripción breve.",
+      "image": "./assets/images/proyecto.png",
+      "link": "https://github.com/tu-usuario/proyecto"
+    }
+  ]
+}
+```
+
+### `{lang}/technologies.json`
+
+```json
+{
+  "heading": "Tecnologías",
+  "items": [
+    { "text": "HTML",       "icon": "./assets/images/html.svg",       "category": "frontend" },
+    { "text": "JavaScript", "icon": "./assets/images/javascript.svg", "category": "frontend" }
+  ]
+}
+```
+
+---
+
+## 🚀 Uso rápido
+
 ```bash
 git clone https://github.com/proyectos-random-x/OnePageCV.git
 cd OnePageCV
 ```
-Abrí index.html en tu navegador.
 
-Para cambiar el contenido, editá los archivos en /assets/json/.
+Abrí `index.html` en tu navegador (o servilo con cualquier servidor estático).
 
-Para cambiar de idioma de forma manual:
+Personalizá los archivos en `/assets/json/` con tu información.
+
+---
+
+## ⚙️ Configuración SEO
+
+En `index.html`, reemplazá los valores marcados con tu información real:
+
 ```html
-<!-- Cambiar por lang="en", lang="pt", etc. -->
-<html lang="es" data-scheme="light" data-color="default">
+<!-- Canonical -->
+<link rel="canonical" href="https://tu-dominio.com/">
+
+<!-- Open Graph -->
+<meta property="og:url"   content="https://tu-dominio.com/">
+<meta property="og:image" content="https://tu-dominio.com/assets/images/user_profile.png">
 ```
 
-### 🌍 Publicación
-Podés subir este proyecto directamente a:
-- GitHub Pages
-- Netlify
-- Vercel
+---
 
-### 🤝 Créditos
+## 🌍 Publicación
+
+Compatible con:
+
+- [GitHub Pages](https://pages.github.com/)
+- [Netlify](https://netlify.com/)
+- [Vercel](https://vercel.com/)
+
+---
+
+## 🤝 Créditos
+
 Hecho con cariño por Joel.
-Inspirado en buenas prácticas, accesibilidad y ganas de dejar el código más prolijo que una libreta nueva 🧼📘.
 
-### 📃 Licencia
-MIT – Usalo, modificalo y compartilo como quieras.
+## 📃 Licencia
+
+MIT — Usalo, modificalo y compartilo como quieras.

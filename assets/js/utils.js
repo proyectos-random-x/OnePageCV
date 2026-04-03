@@ -1,22 +1,32 @@
-export async function loader({ filename = 'base', base = false }) {
-	try {
-		// Idioma actual o español por defecto
-		const lang = localStorage.getItem('lang') || 'es';
+/**
+ * utils.js
+ * Funciones de utilidad compartidas por todo el portfolio.
+ */
 
-		// Base del proyecto (mejor usar URL que concatenación)
+/**
+ * Carga un archivo JSON desde /assets/json/{lang}/{filename}.json
+ * o /assets/json/{lang}/base.json si se pasa { base: true }.
+ *
+ * @param {Object} options
+ * @param {string}  [options.filename='base'] - Nombre del archivo (sin extensión)
+ * @param {boolean} [options.base=false]      - Si true, carga el archivo raíz del idioma
+ * @returns {Promise<Object|null>}
+ */
+export async function loader({ filename = 'base', base = false } = {}) {
+	try {
+		const lang = localStorage.getItem('lang') || 'es';
 		const basePath = `${location.origin}${location.pathname}`.replace(/\/+$/, '');
 
-		// Ruta al archivo JSON
+		// Si base=true cargamos el json raíz del idioma (ej. /assets/json/es.json)
 		const path = `/assets/json/${lang}/${filename}.json`;
 
-		// Petición
-		const response = await fetch(`${basePath}${path}`);
-		const { ok: Success, status, statusText } = response;
-		if (!Success) {
-			throw new Error(`No se pudo cargar: ${url} → [${status}] ${statusText}`);
+		const url = `${basePath}${path}`;
+		const response = await fetch(url);
+
+		if (!response.ok) {
+			throw new Error(`No se pudo cargar: ${url} → [${response.status}] ${response.statusText}`);
 		}
 
-		// Resultado
 		return await response.json();
 	} catch (error) {
 		console.error('[loader] Error al cargar JSON:', error.message);
@@ -24,65 +34,96 @@ export async function loader({ filename = 'base', base = false }) {
 	}
 }
 
+/**
+ * Devuelve el primer elemento que coincida con [data-{property}="{namespace}"].
+ *
+ * @param {string} property  - Nombre del atributo data (sin "data-")
+ * @param {string} namespace - Valor del atributo
+ * @returns {Element|null}
+ */
 export function attributes(property, namespace) {
 	return document.querySelector(`[data-${property}="${namespace}"]`);
 }
 
+/**
+ * Crea un elemento HTML con las opciones dadas.
+ *
+ * @param {Object} options
+ * @param {string}        options.el       - Tag del elemento
+ * @param {string}        [options.content]  - textContent
+ * @param {string}        [options.classes]  - className
+ * @param {Element|Array|Object} [options.append] - Hijo/s a insertar
+ * @param {Object}        rest             - Atributos adicionales (src, href, alt…)
+ * @returns {HTMLElement}
+ */
 export function newElement({ el, content = '', classes = '', append = null, ...rest }) {
-	const _element = document.createElement(el);
-	if(classes !== '') _element.className = classes;
-	if(content !== '') _element.textContent = content;
-	
-	// Manejar atributos adicionales como src, alt, href, etc.
+	const element = document.createElement(el);
+
+	if (classes) element.className = classes;
+	if (content) element.textContent = content;
+
 	for (const [key, value] of Object.entries(rest)) {
-		if (key in _element || typeof value === 'string') {
-			_element.setAttribute(key, value);
-		}
+		element.setAttribute(key, value);
 	}
 
-	// Manejar append como array, objeto o elemento
 	if (append) {
-		if (Array.isArray(append)) {
-			append.forEach(child => _element.appendChild(child instanceof HTMLElement ? child : newElement(child)));
-		} else {
-			_element.appendChild(append instanceof HTMLElement ? append : newElement(append));
-		}
+		const children = Array.isArray(append) ? append : [append];
+		children.forEach(child => {
+			element.appendChild(child instanceof HTMLElement ? child : newElement(child));
+		});
 	}
 
-	return _element;
+	return element;
 }
 
+/**
+ * Activa el scroll-spy: resalta el enlace del nav que corresponde
+ * a la sección visible actualmente.
+ *
+ * @param {number} [offset=70] - Desplazamiento en px para la detección
+ */
 export function scrollSpy(offset = 70) {
 	const menu = document.querySelector('.menu');
 	if (!menu) return;
 
-	const items = menu.querySelectorAll('.menu-link');
-	const sections = [...document.querySelectorAll('section')];
+	const items    = menu.querySelectorAll('.menu-link');
+	const sections = [...document.querySelectorAll('section[id]')];
 
 	if (!sections.length || !items.length) return;
 
-	window.addEventListener('scroll', () => {
+	const onScroll = () => {
 		const scrollPos = window.scrollY;
 		let currentId = '';
 
 		for (const section of sections) {
-			const top = section.offsetTop - offset;
+			const top    = section.offsetTop - offset;
 			const height = section.clientHeight;
-
 			if (scrollPos >= top && scrollPos < top + height) {
 				currentId = section.id;
-				break; // Salimos en cuanto encontremos la actual
+				break;
 			}
 		}
 
 		items.forEach(link => {
 			const href = link.getAttribute('href');
-			link.classList.toggle('active', href === `#${currentId}`);
+			const isActive = href === `#${currentId}`;
+			link.classList.toggle('active', isActive);
+			// Actualiza el estado accesible del enlace activo
+			link.setAttribute('aria-current', isActive ? 'true' : 'false');
 		});
-	});
+	};
+
+	window.addEventListener('scroll', onScroll, { passive: true });
+	// Ejecutamos una vez al cargar para marcar la sección inicial
+	onScroll();
 }
 
+/**
+ * Lee un parámetro de la URL.
+ *
+ * @param {string} param - Nombre del parámetro
+ * @returns {string|null}
+ */
 export function params(param) {
-	const search = new URLSearchParams(window.location.search);
-	return search.get(param);
+	return new URLSearchParams(window.location.search).get(param);
 }
