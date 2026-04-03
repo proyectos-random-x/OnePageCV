@@ -40,8 +40,6 @@ Un portfolio personal minimalista y profesional que funciona como CV online de u
 │   │       ├── Technologies.js
 │   │       └── Traits.js
 │   └── json/
-│       ├── es.json           ← Config base en español (NavbarItems, Contact, Categories…)
-│       ├── en.json           ← Config base en inglés
 │       ├── es/
 │       │   ├── bio.json
 │       │   ├── projects.json
